@@ -1,0 +1,58 @@
+[
+  {
+    "univnum": 1,
+    "areanum": 1,
+    "area": "서울",
+    "korname": "서울대학교",
+    "engname": "SEOUL NATIONAL UNIVERSITY",
+    "imgurl": "https://univslogan.s3.ap-northeast-2.amazonaws.com/univimg/SNU.png"
+  },
+  {
+    "univnum": 2,
+    "areanum": 1,
+    "area": "서울",
+    "korname": "연세대학교",
+    "engname": "YONSEI UNIVERSITY",
+    "imgurl": "https://univslogan.s3.ap-northeast-2.amazonaws.com/univimg/YU.png"
+  },
+  {
+    "univnum": 3,
+    "areanum": 1,
+    "area": "서울",
+    "korname": "고려대학교",
+    "engname": "KOREA UNIVERSITY",
+    "imgurl": "https://univslogan.s3.ap-northeast-2.amazonaws.com/univimg/KU.png"
+  },
+  {
+    "univnum": 4,
+    "areanum": 1,
+    "area": "서울",
+    "korname": "서강대학교",
+    "engname": "SOGANG UNIVERSITY",
+    "imgurl": ""
+  },
+  {
+    "univnum": 5,
+    "areanum": 1,
+    "area": "서울",
+    "korname": "성균관대학교",
+    "engname": "SUNGKYUNKWAN UNIVERSITY",
+    "imgurl": "https://univslogan.s3.ap-northeast-2.amazonaws.com/univimg/IHS.png"
+  },
+  {
+    "univnum": 6,
+    "areanum": 1,
+    "area": "서울",
+    "korname": "한양대학교",
+    "engname": "HANYANG UNIVERSITY",
+    "imgurl": "https://univslogan.s3.ap-northeast-2.amazonaws.com/univimg/HU.png"
+  },
+  {
+    "univnum": 7,
+    "areanum": 1,
+    "area": "서울",
+    "korname": "이화여자대학교",
+    "engname": "EWHA WOMANS UNIVERSITY",
+    "imgurl": "https://univslogan.s3.ap-northeast-2.amazonaws.com/univimg/EWU.png"
+  }
+]

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                crossorigin="anonymous"></script>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+                crossOrigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossOrigin="anonymous"></script>
+
+        <!-- Optional JavaScript -->
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+        <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+
+
+        <!-- WEB FONTS-->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+
+
+        <title>워너비U</title>
+        <style>
+            * {
+                position: relative;
+                border: none;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 40px;
+                font-family: 'Noto Sans KR', sans-serif;
+                color: gold;
+            }
+
+            #templatesBox {
+                width: 640px;
+                background-color: lightgray;
+                border-radius: 5px;
+                padding: 80px;
+            }
+
+            #preview {
+                background-color: red;
+                text-align: center;
+                border-color: green;
+                padding: 100px;
+                margin-bottom: 20px;
+                width: 640px;
+                height: 640px;
+            }
+
+            #univNameKorean {
+                font-size: 30pt;
+                font-weight: bold;
+            }
+
+            #univNameEng {
+                font-size: 18pt;
+            }
+
+            #major {
+                font-size: 20pt;
+            }
+
+            #year-name {
+                font-size: 30pt;
+                font-weight: bold;
+            }
+
+            button {
+                background-color: gold;
+                border: none;
+                width: 640px;
+                color: black;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 5px;
+                margin-bottom: 100px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 15px;
+                cursor: pointer;
+
+            }
+
+            .bottom {
+                text-align: center;
+            }
+
+            body {
+                text-align: center;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h1>워너비 U</h1>
+        <div id="preview">
+            <img src={{data.imgurl}} width="180"><br>
+            <span id="univNameKorean">{{data.univ}}</span><br>
+            <span id="univNameEng">{{data.univeng}}</span><br>
+            <span id="major">{{data.major}}</span><br>
+            <span id="year-name">{{data.year}}학번 {{data.name}}</span>
+        </div>
+        <div id="templatesBox">
+
+        </div>
+        <div class="bottom">
+            <button onclick="createImg()" class="bottomBTN">저장하기!</button>
+        </div>
+
+        <script>
+            function createImg() {
+                window.scrollTo(0, 0);
+                html2canvas(document.getElementById("preview"), {
+                    logging: true,
+                    letterRendering: 1,
+                    allowTaint: true,
+                    useCORS: true,
+                    foreignObjectRendering: true,
+                    backgroundColor: null,
+                    scale: 200,
+                }).then(canvas => {
+                        return Canvas2Image.saveAsPNG(canvas);
+                        var myImage = document.createElement('img');
+                        myImage.crossOrigin = "*";
+                        myImage.width = 760;
+                        myImage.height = 760;
+                        myImage.src = canvas.toDataURL('image/jpg');
+                        console.log(myImage.url)
+                    }
+                );
+
+                window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+
+            }
+
+            // result => {
+            // const imgData = result.toDataURL("image/png");
+            // savePng(imgData);
+            // console.log(imgData)
+            //
+            // html2canvas(document.getElementById("preview")).then(canvas => {
+            //     document.body.appendChild(canvas)
+
+        </script>
+
+    </body>
+</html>

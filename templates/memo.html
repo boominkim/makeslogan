@@ -1,0 +1,149 @@
+//대학명 검색후 입력시
+            /* function selectUniv() {
+                 let univ = $("#univInput").val();
+                 $.ajax({
+                     type: "GET",
+                     url: "http://kosis.kr/kosisapi/service/IndicatorService/IndListSearchRequest?STAT_JIPYO_NM=%EA%B0%95%EC%88%98%EB%9F%89&ServiceKey=hmIKH9qUJhi2hKTbGW%2BaaoTbAUhDCapOEDIurmpMMUAvIT%2BZQYE3I2LF9RFF8SE9%2BpZKood0upy2l7OMgqBb8g%3D%3D",
+                     data: {},
+                     success: function (response) {
+                         let univInfo = response["RealtimeCityAir"]["row"];
+
+                         function (response) {
+                             let =
+                             response[0]['url'];
+                             $("#univInput").attr("src", imgUrl);
+                         }
+                     });
+             }*/
+
+
+
+            /*
+                        function makeSlogan() {
+                            let name = $("#nameInput").val();
+                            let year = $("#yearInput").val();
+                            let major = $("#majorInput").val();
+
+                            // 2. 값을 입력하지 않은 경우 Alert
+                            if (name == "") {
+                                alert("대학교가 입력되지 않았습니다!");
+                                $("#univInput").focus();
+                                return;
+                            } else if (year == "") {
+                                alert("대학교가 입력되지 않았습니다!");
+                                $("#nameInput").focus();
+                                return;
+                            } else if (year == "") {
+                                alert("학번을 입력해주세요!");
+                                $("#yearInput").focus();
+                                return;
+                            } else if (major == "") {
+                                alert("전공을 입력해주세요!");
+                                $("#majorInput").focus();
+                                return;
+                            }
+
+
+                            $.ajax({
+                                type: "POST",
+                                url: "/maker",
+                                data: {univ_give: univ, name_give: name, year_give: year, major_give: major},
+                                success: function (response) {
+                                    if (response["result"] == "success") {
+                                        alert(response["msg"]);
+                                        window.location.reload();
+                                    }
+                                }
+                            })
+                        }*/
+
+
+
+function createImg() {
+                html2canvas($('#preview')[0], {
+                    width: 800,
+                    height: 800,
+                }).then(function (canvas) {
+                    var myImage = canvas.toDataURL();
+                    downloadURI(myImage, "001.png");
+                    // document.body.appendChild(canvas)
+                });
+            }
+
+
+
+          function readlist() {
+                var dataList = document.getElementById('univ-list');
+                var input = document.getElementById('univInput');
+
+                var request = new XMLHttpRequest();
+
+                request.onreadystatechange = function (response) {
+                    if (request.readyState === 4) {
+                        if (request.status === 200) {
+                            var univnames = JSON.parse(request.responseText);
+                            univnames.forEach(
+                                function (univsearch) {
+                                    var option = document.createElement('option');
+                                    option.value = univsearch.korname;
+                                    dataList.appendChild(option);
+                                });
+
+                            input.placeholder = "Ex. 서울대학교";
+                        } else {
+                            input.placeholder = "옵션을 불러올 수 없습니다.";
+                        }
+                    }
+                };
+
+                input.placeholder = "Loading...";
+
+                request.open('GET', "./univlist.json", true);
+                request.send();
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@app.route('/api/list', methods=['GET'])
+def show_list():
+    find({}, {'_id': False})
+    univs = list(db.univlist.find({}, {'_id': False})
+    return jsonify({'result': 'success', 'univ_list': univs})
+
+def like_star():
+    # 1. 클라이언트가 전달한 name_give를 name_receive 변수에 넣습니다.
+    univ_receive = request.form['univ_give']
+    name_receive = request.form['name_give']
+    year_receive = request.form['year_give']
+    major_receive = request.form['major_give']
+
+    univ = db.univlist.find_one({'univname': univ_receive})
+    # 2. mystar 목록에서 find_one으로 name이 name_receive와 일치하는 star를 찾습니다.
+    # 3. star의 like 에 1을 더해준 new_like 변수를 만듭니다.
+
+    # new_like = star['like'] + 1
+    # 4. mystar 목록에서 name이 name_receive인 문서의 like 를 new_like로 변경합니다.
+    # 참고: '$set' 활용하기!
+    db.userinfo.update_one({'name': name_receive}, {'$set': {'like': new_like}})
+
+    # 5. 성공하면 success 메시지를 반환합니다.
+    return jsonify({'result': 'success'})

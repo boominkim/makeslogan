@@ -1,0 +1,154 @@
+body {
+    border: none;
+    background-color: #ffe3e3;
+    position: relative;
+}
+
+#header {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #ff5266;
+    display: flex;
+    align-items: center;
+}
+
+#header h3 {
+    font-family: NEXONLv1GothicOTF;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+#contents {
+    width: 100vw;
+    /*height: 100vh;*/
+    margin-top: 100px;
+    margin-bottom: 250px;
+    overflow: scroll;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preview {
+    width: 364px;
+    height: 364px;
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.16);
+    border: solid 10px #ff7e8d;
+    background-color: #ffffff;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#preview img {
+    width: auto;
+    height: 128px;
+    /*margin: 0px 5px 5px 5px;*/
+    margin-top: 12%;
+    margin-bottom: 5px;
+    transform: translate(0%, -6%);
+}
+
+#preview span {
+    line-height: 1.7;
+}
+
+#univNameKorean {
+    font-family: NanumSquareEB;
+    font-size: 25px;
+    color: #ff7e8d;
+}
+
+#univNameEng {
+    font-family: NanumSquareB;
+    font-size: 13px;
+    color: #b7b7b7;
+}
+
+#major {
+    font-family: NanumSquareB;
+    font-size: 18px;
+    color: #ff7e8d;
+}
+
+#year-name {
+    font-family: NanumSquareEB;
+    font-size: 30px;
+    color: #ff7e8d;
+}
+
+#templatesBox {
+    overflow: hidden;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#templatesBox .templates {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    margin: 0px 4px;
+    background-color: #ffbebe;
+    border: none;
+    border-radius: 80px;
+    font-family: NanumSquareB;
+    font-size: 12px;
+    text-align: center;
+    color: #b7b7b7;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.makerbox {
+    width: 100%;
+    height: 200px;
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+    padding: 30px;
+    position: fixed;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -100%);
+}
+
+.makerbox h3 {
+    font-family: NanumSquareB;
+    font-size: 17px;
+    text-align: center;
+    color: #ff7e8d;
+}
+
+
+.bottomBTN {
+    margin-top: 30px;
+    width: 100%;
+    height: 69px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ff7e8d;
+    font-family: NanumSquareB;
+    font-size: 20px;
+    font-style: normal;
+    text-align: center;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+}
+
+button:focus {
+    outline: none;
+}

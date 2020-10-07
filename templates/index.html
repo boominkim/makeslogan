@@ -11,6 +11,8 @@
               crossorigin="anonymous">
 
         <!-- CSS , JS -->
+        <link rel="stylesheet" href="static/css/reset.css">
+        <link rel="stylesheet" href="static/css/style.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,97 +25,102 @@
 
         <title>워너비U</title>
         <style>
-            * {
-                position: relative;
-                border: none;
-                margin-left: auto;
-                margin-right: auto;
-            }
+            /** {*/
+            /*    position: relative;*/
+            /*    border: none;*/
+            /*    margin-left: auto;*/
+            /*    margin-right: auto;*/
+            /*}*/
 
-            h1 {
-                text-align: center;
-                margin-top: 100px;
-                margin-bottom: 40px;
-                font-family: 'Noto Sans KR', sans-serif;
-                color: gold;
-            }
+            /*h1 {*/
+            /*    text-align: center;*/
+            /*    margin-top: 100px;*/
+            /*    margin-bottom: 40px;*/
+            /*    font-family: 'Noto Sans KR', sans-serif;*/
+            /*    color: gold;*/
+            /*}*/
 
-            label {
-                margin-top: 0px;
-                margin-bottom: 5px;
-            }
+            /*label {*/
+            /*    margin-top: 0px;*/
+            /*    margin-bottom: 5px;*/
+            /*}*/
 
-            .wrap {
-                width: 640px;
-                background-color: lightgray;
-                border-radius: 5px;
-                padding: 80px;
-            }
+            /*.wrap {*/
+            /*    width: 640px;*/
+            /*    background-color: lightgray;*/
+            /*    border-radius: 5px;*/
+            /*    padding: 80px;*/
+            /*}*/
 
-            input {
-                width: 100%;
-                margin: 0px 0px 10px 0px;
-                padding: 10px;
-                border-radius: 5px;
-            }
+            /*input {*/
+            /*    width: 100%;*/
+            /*    margin: 0px 0px 10px 0px;*/
+            /*    padding: 10px;*/
+            /*    border-radius: 5px;*/
+            /*}*/
 
-            .search {
-                width: 100%;
-            }
+            /*.search {*/
+            /*    width: 100%;*/
+            /*}*/
 
-            button {
-                background-color: gold;
-                color: black;
-                border-radius: 5px;
-                padding: 10px;
-                margin: 5px;
-                text-align: center;
-                text-decoration: none;
-                font-size: 15px;
-                cursor: pointer;
-            }
+            /*button {*/
+            /*    background-color: gold;*/
+            /*    color: black;*/
+            /*    border-radius: 5px;*/
+            /*    padding: 10px;*/
+            /*    margin: 5px;*/
+            /*    text-align: center;*/
+            /*    text-decoration: none;*/
+            /*    font-size: 15px;*/
+            /*    cursor: pointer;*/
+            /*}*/
 
-            .bottom {
-                text-align: center;
-                margin: 0px;
-            }
+            /*.bottom {*/
+            /*    text-align: center;*/
+            /*    margin: 0px;*/
+            /*}*/
 
-            .bottomBTN {
-                width: 100%;
-                margin: 0px;
-            }
+            /*.bottomBTN {*/
+            /*    width: 100%;*/
+            /*    margin: 0px;*/
+            /*}*/
 
 
         </style>
     </head>
     <body>
-        <h1>워너비 U</h1>
-        <div class="wrap">
-            <div class="searchbox">
-                <label for="univInput">원하는 대학명을 입력해보세요!</label>
-                <input type="text"
-                       list="univ-list"
-                       autocomplete="off"
-                       class="search"
-                       id="univInput">
-                <datalist id="univ-list">
-                </datalist>
+        <section id="container">
+            <span id="title">
+                <h1>워너비 U</h1>
+                <h2>우리가 꿈꾸는 선명한 미래</h2>
+            </span>
 
-                <hr style="border:1px Black50 thick;"/>
-                <div class="inputBox">
-                    <label for="nameInput">이름 :</label>
-                    <input id="nameInput" type="text"><br>
-                    <label for="yearInput">입학년도 :</label>
-                    <input id="yearInput" type="number" autocomplete="off" min="2021" max="2099"
-                           oninput="if(value.length>4)value=value.slice(0,4)"/><br>
-                    <label for="majorInput">전공 :</label>
-                    <input id="majorInput" type="text"><br>
+            <div class="inputbox">
+                <h6>Updated 2020.09.28</h6>
+                <div class="searchbox">
+                    <input type="text"
+                           list="univ-list"
+                           autocomplete="off"
+                           class="search"
+                           id="univInput"
+                           placeholder="대학명을 입력해주세요!">
+                    <datalist id="univ-list">
+                    </datalist>
+                    <div class="inputBox">
+                        <label for="nameInput">이름 :</label>
+                        <input class="sub" id="nameInput" type="text"><br>
+                        <label for="yearInput">입학년도 :</label>
+                        <input class="sub" id="yearInput" type="number" autocomplete="off" min="2021" max="2099"
+                               oninput="if(value.length>4)value=value.slice(0,4)"/><br>
+                        <label for="majorInput">전공 :</label>
+                        <input class="sub" id="majorInput" type="text"><br>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <button onclick="makeSlogan()" class="bottomBTN">만들러 가기!</button>
                 </div>
             </div>
-            <div class="bottom">
-                <button onclick="makeSlogan()" class="bottomBTN">만들러 가기!</button>
-            </div>
-        </div>
+        </section>
 
 
         <!-- Optional JavaScript -->
@@ -140,7 +147,7 @@
                 let dataList = document.getElementById('univ-list');
                 let input = document.getElementById('univInput');
 
-                let univnames =  {{data|tojson}}
+                let univnames = {{ data | tojson }}
                 console.log(univnames)
                 univnames.forEach(
                     function (univsearch) {
@@ -203,7 +210,6 @@
                     })
                 }
             };
-
 
 
         </script>

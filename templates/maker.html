@@ -23,135 +23,203 @@
                 crossOrigin="anonymous"></script>
 
         <!-- Optional JavaScript -->
-        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-        <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/src/dom-to-image.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 
+        <!-- CSS , JS -->
+        <link rel="stylesheet" href="/static/css/reset.css">
+        <link rel="stylesheet" href="/static/css/maker.css">
 
         <!-- WEB FONTS-->
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&display=swap" rel="stylesheet">
 
 
         <title>워너비U</title>
         <style>
-            * {
-                position: relative;
-                border: none;
-                margin-left: auto;
-                margin-right: auto;
-            }
+            /** {*/
+            /*    position: relative;*/
+            /*    border: none;*/
+            /*    margin-left: auto;*/
+            /*    margin-right: auto;*/
+            /*}*/
 
-            h1 {
-                text-align: center;
-                margin-top: 50px;
-                margin-bottom: 40px;
-                font-family: 'Noto Sans KR', sans-serif;
-                color: gold;
-            }
+            /*h1 {*/
+            /*    text-align: center;*/
+            /*    margin-top: 50px;*/
+            /*    margin-bottom: 40px;*/
+            /*    font-family: 'Gothic A1', sans-serif;*/
+            /*    font-weight: 800;*/
+            /*    color: gold;*/
+            /*}*/
 
-            #templatesBox {
-                width: 640px;
-                background-color: lightgray;
-                border-radius: 5px;
-                padding: 80px;
-            }
+            /*#preview {*/
+            /*    background-color: red;*/
+            /*    text-align: center;*/
+            /*    border-color: green;*/
+            /*    padding: 100px;*/
+            /*    margin-bottom: 20px;*/
+            /*    width: 640px;*/
+            /*    height: 640px;*/
+            /*}*/
 
-            #preview {
-                background-color: red;
-                text-align: center;
-                border-color: green;
-                padding: 100px;
-                margin-bottom: 20px;
-                width: 640px;
-                height: 640px;
-            }
+            /*#univNameKorean {*/
+            /*    font-family: 'Gothic A1', sans-serif;*/
+            /*    font-weight: 800;*/
+            /*    font-size: 30pt;*/
+            /*}*/
 
-            #univNameKorean {
-                font-size: 30pt;
-                font-weight: bold;
-            }
+            /*#univNameEng {*/
+            /*    font-family: 'Gothic A1', sans-serif;*/
+            /*    font-weight: 400;*/
+            /*    font-size: 18pt;*/
+            /*}*/
 
-            #univNameEng {
-                font-size: 18pt;
-            }
+            /*#major {*/
+            /*    font-size: 20pt;*/
+            /*}*/
 
-            #major {
-                font-size: 20pt;
-            }
+            /*#year-name {*/
+            /*    font-size: 30pt;*/
+            /*    font-weight: bold;*/
+            /*}*/
 
-            #year-name {
-                font-size: 30pt;
-                font-weight: bold;
-            }
 
-            button {
-                background-color: gold;
-                border: none;
-                width: 640px;
-                color: black;
-                border-radius: 5px;
-                padding: 10px;
-                margin: 5px;
-                margin-bottom: 100px;
-                text-align: center;
-                text-decoration: none;
-                font-size: 15px;
-                cursor: pointer;
+            /*#templatesBox {*/
+            /*    width: 640px;*/
+            /*    background-color: #F2F2F2;*/
+            /*    border-radius: 5px;*/
+            /*    padding: 10px;*/
+            /*}*/
 
-            }
+            /*.templates {*/
+            /*    border: none;*/
+            /*    border-radius: 80px;*/
+            /*    width: 80px;*/
+            /*    height: 80px;*/
+            /*    color: white;*/
+            /*    text-align: center;*/
+            /*    text-decoration: none;*/
+            /*    display: inline-block;*/
+            /*    font-size: 12px;*/
+            /*    margin: 4px 2px;*/
+            /*    cursor: pointer;*/
 
-            .bottom {
-                text-align: center;
-            }
+            /*}*/
 
-            body {
-                text-align: center;
-            }
+            /*.btn1 {*/
+            /*    background-color: #000000;*/
+            /*}*/
+
+            /*.btn2 {*/
+            /*    background-color: #FFA07A;*/
+            /*}*/
+
+            /*.btn3 {*/
+            /*    background-color: #FF4500;*/
+            /*}*/
+
+            /*.btn4 {*/
+            /*    background-color: #EE82EE;*/
+            /*}*/
+
+            /*.btn5 {*/
+            /*    background-color: #00FA9A;*/
+            /*}*/
+
+            /*.btn6 {*/
+            /*    background-color: #FFB6C1;*/
+            /*}*/
+
+
+            /*#makeButton {*/
+            /*    background-color: gold;*/
+            /*    border: none;*/
+            /*    width: 640px;*/
+            /*    color: black;*/
+            /*    border-radius: 10px;*/
+            /*    padding: 10px;*/
+            /*    margin: 5px;*/
+            /*    margin-bottom: 100px;*/
+            /*    text-align: center;*/
+            /*    text-decoration: none;*/
+            /*    font-size: 15px;*/
+            /*    cursor: pointer;*/
+            /*}*/
+
+            /*.bottom {*/
+            /*    text-align: center;*/
+            /*}*/
+
+            /*body {*/
+            /*    text-align: center;*/
+            /*}*/
 
 
         </style>
     </head>
     <body>
-        <h1>워너비 U</h1>
-        <div id="preview">
-            <img src={{data.imgurl}} width="180"><br>
-            <span id="univNameKorean">{{data.univ}}</span><br>
-            <span id="univNameEng">{{data.univeng}}</span><br>
-            <span id="major">{{data.major}}</span><br>
-            <span id="year-name">{{data.year}}학번 {{data.name}}</span>
+        <header id="header">
+            <h3>워너비U</h3>
+        </header>
+        <div id="contents">
+            <div id="container">
+                <div id="preview">
+                    <img src={{data.imgurl}} width="180"><br>
+                    <span id="univNameKorean">{{data.univ}}</span><br>
+                    <span id="univNameEng">{{data.univeng}}</span><br>
+                    <span id="major">{{data.major}}</span><br>
+                    <span id="year-name">{{data.year}}학번 {{data.name}}</span>
+                </div>
+            </div>
+            <div id="templatesBox">
+                <button class="templates btn1">BASIC</button>
+                <button class="templates btn2">Fantastic</button>
+                <button class="templates btn3">Vivid</button>
+                <button class="templates btn4">Energetic</button>
+                <button class="templates btn6">dreamy</button>
+            </div>
         </div>
-        <div id="templatesBox">
-
-        </div>
-        <div class="bottom">
-            <button onclick="createImg()" class="bottomBTN">저장하기!</button>
+        <div class="makerbox">
+            <h3>내가 꿈꾸는 미래가 완성되었나요?</h3>
+            <button id="makeButton" onclick="createImg()" class="bottomBTN">저장하기!</button>
         </div>
 
         <script>
             function createImg() {
-                window.scrollTo(0, 0);
-                html2canvas(document.getElementById("preview"), {
-                    logging: true,
-                    letterRendering: 1,
-                    allowTaint: true,
-                    useCORS: true,
-                    foreignObjectRendering: true,
-                    backgroundColor: null,
-                    scale: 200,
-                }).then(canvas => {
-                        return Canvas2Image.saveAsPNG(canvas);
-                        var myImage = document.createElement('img');
-                        myImage.crossOrigin = "*";
-                        myImage.width = 760;
-                        myImage.height = 760;
-                        myImage.src = canvas.toDataURL('image/jpg');
-                        console.log(myImage.url)
-                    }
-                );
 
-                window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+
+                domtoimage.toBlob(document.getElementById('preview'), {quality: 0.95})
+                    .then(function (blob) {
+                        window.saveAs(blob, 'my-node.png');
+                    });
+
 
             }
+
+            // function createImg() {
+            // window.scrollTo(0, 0);
+            // html2canvas(document.getElementById("preview"), {
+            //     logging: true,
+            //     letterRendering: 1,
+            //     allowTaint: true,
+            //     useCORS: true,
+            //     foreignObjectRendering: true,
+            //     backgroundColor: null,
+            //     scale: 200,
+            // }).then(canvas => {
+            //         return Canvas2Image.saveAsPNG(canvas);
+            //         var myImage = document.createElement('img');
+            //         myImage.crossOrigin = "*";
+            //         myImage.width = 760;
+            //         myImage.height = 760;
+            //         myImage.src = canvas.toDataURL('image/jpg');
+            //         console.log(myImage.url)
+            //     }
+            // );
+
+            // window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+
 
             // result => {
             // const imgData = result.toDataURL("image/png");
